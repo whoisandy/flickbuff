@@ -1,26 +1,20 @@
 @font-face {
     font-family: 'customFont';
     src: url("../src/sass/fonts/customFont.woff") format('woff');
-    font-weight: normal;
-    font-style: normal;
 }
+
 body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   background-color: #333333;
 }
-.app p{
-  margin-top: auto;
-  color: white;
+
+#logo a{
+  margin-top: 1cm;
+  display: block;
   text-align: center;
-  font-family: cursive;
-  text-shadow: 1px 1px black;
-}
-.app h1 {
+  text-decoration: none;
   color: #F9C75E;
-  text-align: center;
-  text-shadow: 1px 1px black;
+  text-shadow: 3px 3px black;
   font-family: customFont;
-  font-size: 60px;
+  font-size: 65px;
+  font-weight: bold;
 }
