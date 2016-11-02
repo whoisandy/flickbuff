@@ -1,0 +1,15 @@
+{
+  "name": "flickbuff",
+  "homepage": "https://github.com/whoisandie/flickbuff",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
