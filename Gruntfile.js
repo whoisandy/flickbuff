@@ -51,7 +51,8 @@ module.exports = function(grunt) {
         },
         options: {
           watchTask: true,
-          server: './dist'
+          server: './dist',
+          serveStatic: ['.', './bower_components']
         }
       }
     }
