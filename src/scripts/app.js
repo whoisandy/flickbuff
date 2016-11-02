@@ -1,7 +1,7 @@
-(function($, Backbone, _) {
+(function($, Backbone, _,hbs) {
   var AppView = Backbone.View.extend({
-    el: $('#wrapper'),
-    template: _.template($('#app-template').html()),
+    el : $('#wrapper'),
+    template : hbs.compile($('#app-template').html()),
     initialize: function() {
       this.render();
     },
@@ -13,4 +13,4 @@
   });
 
   var app = new AppView();
-})(jQuery, Backbone, _);
+})(jQuery, Backbone, _, Handlebars);

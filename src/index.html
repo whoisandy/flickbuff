@@ -7,13 +7,14 @@
 </head>
 <body>
   <div id="wrapper"></div>
-  <script type="text/template" id="app-template">
+  <script type="text/x-handlebars" id="app-template">
     <div class="app">
-      <h1><%= message %></h1>
+      <h1>{{ message }}</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore quisquam, officiis. Repellat esse, repudiandae, cumque eveniet suscipit at dicta cum!</p>
     </div>
   </script>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/handlebars/handlebars.min.js"></script>
   <script src="bower_components/underscore/underscore-min.js"></script>
   <script src="bower_components/backbone/backbone-min.js"></script>
   <script src="js/app.js"></script>
