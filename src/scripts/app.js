@@ -1,11 +1,14 @@
 (function($, Backbone, _) {
   var AppView = Backbone.View.extend({
     el: $('#wrapper'),
+    template: _.template($('#app-template').html()),
     initialize: function() {
       this.render();
     },
     render: function() {
-      this.$el.html('<h1>My Backbone App</h1>')
+      this.$el.html(this.template({
+        message: 'My Backbone App'
+      }));
     }
   });
 
