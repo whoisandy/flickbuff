@@ -1,6 +1,8 @@
 @font-face {
-    font-family: paperdaisy;
-    src: url(fonts/paperdaisy.ttf);
+    font-family: 'customFont';
+    src: url("../src/sass/fonts/customFont.woff") format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 body {
   margin: 0;
@@ -19,6 +21,6 @@ body {
   color: #F9C75E;
   text-align: center;
   text-shadow: 1px 1px black;
-  font-family: paperdaisy;
+  font-family: customFont;
   font-size: 60px;
 }
