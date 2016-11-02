@@ -1,13 +1,16 @@
-(function($, Backbone, _) {
+(function($, Backbone, _,hbs) {
   var AppView = Backbone.View.extend({
-    el: $('#wrapper'),
+    el : $('#wrapper'),
+    template : hbs.compile($('#app-template').html()),
     initialize: function() {
       this.render();
     },
     render: function() {
-      this.$el.html('<h1>My Backbone App</h1>')
+      this.$el.html(this.template({
+        message: 'My Backbone App'
+      }));
     }
   });
 
   var app = new AppView();
-})(jQuery, Backbone, _);
+})(jQuery, Backbone, _, Handlebars);
