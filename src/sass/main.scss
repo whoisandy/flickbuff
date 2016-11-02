@@ -1,5 +1,24 @@
+@font-face {
+    font-family: paperdaisy;
+    src: url(fonts/paperdaisy.ttf);
+}
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: #333333;
+}
+.app p{
+  margin-top: auto;
+  color: white;
+  text-align: center;
+  font-family: cursive;
+  text-shadow: 1px 1px black;
+}
+.app h1 {
+  color: #F9C75E;
+  text-align: center;
+  text-shadow: 1px 1px black;
+  font-family: paperdaisy;
+  font-size: 60px;
 }

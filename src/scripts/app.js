@@ -7,7 +7,7 @@
     },
     render: function() {
       this.$el.html(this.template({
-        message: 'My Backbone App'
+        title: '[ flickbuff ]',
       }));
     }
   });
