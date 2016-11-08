@@ -17,13 +17,23 @@ module.exports = function(grunt) {
   			}
   		}
   	},
+    requirejs: {
+      dev: {
+        options: {
+          mainConfigFile: "./src/scripts/main.js",
+          name: "../../bower_components/almond/almond",
+          include: [ "./main.js" ],
+          out: ".build/js/main.js"
+        }
+      }
+    },
     browserSync: {
       dev: {
         bsFiles: {
           src : [
             '.build/css/*.css',
             'src/scripts/**/*.js',
-            'src/index.html'
+            'src/**/*.html'
           ]
         },
         options: {
@@ -35,6 +45,6 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('dev', ['sass', 'browserSync', 'watch']);
-  grunt.registerTask('build', ['sass']);
+  grunt.registerTask('dev', ['sass', 'requirejs', 'browserSync', 'watch']);
+  grunt.registerTask('build', ['sass', 'requirejs']);
 }
