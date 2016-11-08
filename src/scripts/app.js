@@ -1,13 +1,13 @@
 define([
   'backbone',
-  'utils/index',
+  'helpers',
   'views/genre',
   'views/movie'
-],function(BaseView, Utils, GenreListView, MovieListView) {
-  Utils.init();
+],function(BaseView, Helpers, GenreListView, MovieListView) {
+  Helpers.register();
 
   var AppView = Backbone.View.extend({
-    el: $('#wrapper'),
+    el: '#wrapper',
 
     initialize: function() {
       this.render();
