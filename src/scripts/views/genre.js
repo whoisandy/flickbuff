@@ -1,12 +1,13 @@
 define([
-  'views/base',
+  'jquery',
+  'base/view',
   'collections/genres',
   'text!templates/genres.html'
-], function(BaseView, GenreCollection, sidebarTemplate) {
+], function($, BaseView, GenreCollection, template) {
   var GenreView = BaseView.extend({
     className: 'genre-list',
 
-    template: sidebarTemplate,
+    template: template,
 
     collection: GenreCollection,
 
@@ -14,7 +15,7 @@ define([
       'keyup .search-input': 'handleSearch'
     },
 
-    selectors: {
+    ui: {
       '$searchInput': '.search-input'
     },
 

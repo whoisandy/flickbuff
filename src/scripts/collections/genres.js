@@ -1,6 +1,6 @@
 define([
   'backbone',
-  'collections/base'
+  'base/collection'
 ], function(Backbone, BaseCollection) {
   var GenreModel = Backbone.Model.extend({});
   var GenreCollection = BaseCollection.extend({

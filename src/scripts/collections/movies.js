@@ -1,6 +1,6 @@
 define([
   'backbone',
-  'collections/base'
+  'base/collection'
 ], function(Backbone, BaseCollection) {
   var MovieModel = Backbone.Model.extend({});
   var MovieCollection = BaseCollection.extend({

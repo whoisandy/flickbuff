@@ -1,15 +1,12 @@
 define([
-  'views/base',
+  'base/view',
   'collections/movies',
   'text!templates/movies.html'
-], function(BaseView, MovieCollection, movieTemplate) {
+], function(BaseView, MovieCollection, template) {
   var MovieView = BaseView.extend({
     className: 'movie-list',
-    template: movieTemplate,
-    meta: {
-      title: 'Discover'
-    },
-    selectors: {
+    template: template,
+    ui: {
       '$filter': '#filter'
     },
     collection: MovieCollection,
@@ -20,20 +17,15 @@ define([
     },
     events: {
       'scroll': 'handleScroll',
-      'change #filter': 'filter'
-    },
-    filter: function(e) {
-      this.params.sort_by = this.$filter.val();
-      this.render();
     },
     handleScroll: _.throttle(function() {
       this.$filter.val();
-      var triggerPoint = 80;
+      var triggerPoint = 100;
       if(this.el.scrollTop + this.el.clientHeight + triggerPoint > this.el.scrollHeight) {
         this.params.page += 1;
         this.render();
       }
-    }, 1000)
+    }, 500)
   });
 
   return MovieView;

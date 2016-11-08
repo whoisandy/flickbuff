@@ -3,7 +3,7 @@ define([
   'helpers',
   'views/genre',
   'views/movie'
-],function(BaseView, Helpers, GenreListView, MovieListView) {
+],function(Backbone, Helpers, GenreListView, MovieListView) {
   Helpers.register();
 
   var AppView = Backbone.View.extend({
@@ -16,7 +16,7 @@ define([
     render: function() {
       this.$el
         .append(new GenreListView().render().el)
-        .append(new MovieListView().render().el);
+        .append(new MovieListView().render().el)
     }
   });
 
