@@ -6,17 +6,23 @@ require.config({
     jquery: {
       exports: '$'
     },
+    velocity: {
+      deps: [
+        'jquery'
+      ]
+    },
     backbone: {
       deps: [
         'jquery',
         'underscore'
       ],
       exports: 'Backbone'
-    }
+    },
   },
 
   paths: {
     jquery: '../../bower_components/jquery/dist/jquery.min',
+    velocity: '../../bower_components/velocity/velocity.min',
     backbone: '../../bower_components/backbone/backbone-min',
     underscore: '../../bower_components/underscore/underscore-min',
     handlebars: '../../bower_components/handlebars/handlebars.min',
@@ -25,7 +31,8 @@ require.config({
 });
 
 require([
-  'app'
-], function(App) {
+  'app',
+  'velocity'
+], function(App, velocity) {
   var app = new App();
 });
