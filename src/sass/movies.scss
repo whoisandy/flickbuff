@@ -1,0 +1,48 @@
+.movie-list {
+  overflow-y: scroll;
+  background-color: darken(#303030, 8%);
+  color: white;
+  .movie-list-view {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+}
+
+.movie-list-view {
+  .movie {
+    padding: 8px;
+    flex: 0 1 200px;
+    position: relative;
+    cursor: pointer;
+  }
+}
+
+.movie {
+  .movie-poster > img {
+    width: 100%;
+    height: auto;
+    border: none;
+    display: block;
+  }
+  .movie-info {
+    padding: 20px 50px 20px 20px;
+    background: rgba(0, 0, 0, 0.75);
+    opacity: 0;
+    transition: opacity 0.25s ease-in;
+    position: absolute;
+    display: block;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    h4 {
+      font-size: 18px;
+    }
+  }
+  &:hover > .movie-info {
+    opacity: 1;
+  }
+  @media screen and (max-width: 990px) and (min-width: 767px) {
+    flex: 0 1 154px;
+  }
+}

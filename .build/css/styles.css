@@ -1,4 +1,104 @@
-body {
+*,
+*:before,
+*:after {
   margin: 0;
   padding: 0;
   box-sizing: border-box; }
+
+html, body {
+  height: 100%; }
+
+body {
+  height: 100%;
+  line-height: 1.4;
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 13px;
+  overflow: hidden; }
+
+#wrapper {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0; }
+  #wrapper .genre-list,
+  #wrapper .movie-list {
+    position: absolute;
+    padding-top: 20px;
+    left: 0;
+    top: 0;
+    bottom: 0; }
+  #wrapper .genre-list {
+    width: 240px; }
+  #wrapper .movie-list {
+    padding-left: 20px;
+    padding-right: 20px;
+    left: 240px;
+    right: 0; }
+
+.movie-list {
+  overflow-y: scroll;
+  background-color: #1c1c1c;
+  color: white; }
+  .movie-list .movie-list-view {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row; }
+
+.movie-list-view .movie {
+  padding: 8px;
+  flex: 0 1 200px;
+  position: relative;
+  cursor: pointer; }
+
+.movie .movie-poster > img {
+  width: 100%;
+  height: auto;
+  border: none;
+  display: block; }
+
+.movie .movie-info {
+  padding: 20px 50px 20px 20px;
+  background: rgba(0, 0, 0, 0.75);
+  opacity: 0;
+  transition: opacity 0.25s ease-in;
+  position: absolute;
+  display: block;
+  width: 100%;
+  top: 0;
+  bottom: 0; }
+  .movie .movie-info h4 {
+    font-size: 18px; }
+
+.movie:hover > .movie-info {
+  opacity: 1; }
+
+@media screen and (max-width: 990px) and (min-width: 767px) {
+  .movie {
+    flex: 0 1 154px; } }
+
+.genre-list {
+  background-color: #262626;
+  box-shadow: -2px 0 10px 2px #171717 inset;
+  border-right: 1px #000 solid;
+  z-index: 99; }
+  .genre-list .search {
+    padding: 20px;
+    width: 100%; }
+    .genre-list .search .search-input {
+      width: 100%;
+      padding: 8px 16px;
+      display: block;
+      outline: none;
+      border: 1px #888 solid;
+      border-radius: 4px;
+      font-size: 13px; }
+  .genre-list .genres {
+    list-style: none; }
+
+.genres li a {
+  padding: 6px 24px;
+  display: block;
+  text-decoration: none;
+  color: white; }
+  .genres li a:hover {
+    background-color: #D73C2C; }

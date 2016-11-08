@@ -1,0 +1,45 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  line-height: 1.4;
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 13px;
+  overflow: hidden;
+}
+
+#wrapper {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+
+  .genre-list,
+  .movie-list {
+    position: absolute;
+    padding-top: 20px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+  .genre-list {
+    width: 240px;
+  }
+  .movie-list {
+    padding-left: 20px;
+    padding-right: 20px;
+    left: 240px;
+    right: 0;
+  }
+}

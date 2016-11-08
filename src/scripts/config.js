@@ -28,5 +28,4 @@ require([
   'app'
 ], function(App) {
   var app = new App();
-  // console.log(app);
 });

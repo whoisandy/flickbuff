@@ -1,28 +1,71 @@
 define([
-  'jquery',
   'underscore',
+  'jquery',
   'backbone',
-], function($, _, Backbone) {
-  var viewOptions = ['elements'];
+  'handlebars'
+], function(_, $, Backbone, Handlebars) {
+  var viewOptions = [
+    'meta',
+    'selectors',
+    'template',
+    'templateData'
+  ];
 
   var BaseView = Backbone.View.extend({
-    initialize: function(options) {
-      Backbone.View.prototype.initialize.call(this, options);
+    constructor: function(options) {
+      Backbone.View.prototype.constructor.call(this, options);
       _.extend(this, _.pick(options, viewOptions));
-      // console.log(_.result(this, 'elements'));
-      this.updateElements();
+
+      var originalRender = this.render;
+      this.render = function() {
+        if (_.isFunction(this.beforeRender)) this.beforeRender();
+
+        // Execute the original render function
+        var result = originalRender.apply(this, arguments);
+        // this.cacheSelectors();
+
+        if (_.isFunction(this.afterRender)) this.afterRender();
+        return result;
+      }
     },
 
-    updateElements: function() {
-      // _.each(_.result(this, 'elements'), function(selector, key) {
-      //   this[key] = this.$(selector);
-      // }, this);
-      console.log(this.$('.search-input'));
+    initialize: function() {},
+
+    // Cache selectors
+    cacheSelectors: function() {
+      _.each(_.result(this, 'selectors'), function(selector, key) {
+        this[key] = this.$(selector);
+      }, this);
     },
+
+    // Execute afterRender function
+    beforeRender: function() {},
 
     render: function() {
+      var _this = this;
+      var template = this.template;
+
+      if(!_.isFunction(template)) {
+        template = Handlebars.compile(template);
+      }
+
+
+      if( !_.isUndefined(this.collection)) {
+        var collection = new this.collection();
+        $.when(collection.fetch(this.collectionParams)).then(function(data) {
+          var results = _.extend({}, data, _this.meta);
+          _this.$el.append(template(results));
+          _this.cacheSelectors();
+        });
+      } else {
+        _this.$el.append(template(_.result(this, 'templateData')));
+      }
+
       return this;
-    }
+    },
+
+    // Execute beforeRender function
+    afterRender: function() {}
   });
 
   return BaseView;

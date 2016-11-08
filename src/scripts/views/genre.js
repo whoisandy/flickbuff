@@ -1,17 +1,30 @@
 define([
-  'handlebars',
   'views/base',
-  'text!templates/sidebar.html'
-], function(handlebars, BaseView, sidebarTemplate) {
-  var SidebarView = BaseView.extend({
-    elements: {
-      '$search': '.search-input'
+  'collections/genres',
+  'text!templates/genres.html'
+], function(BaseView, GenreCollection, sidebarTemplate) {
+  var GenreView = BaseView.extend({
+    className: 'genre-list',
+
+    template: sidebarTemplate,
+
+    collection: GenreCollection,
+
+    events: {
+      'keyup .search-input': 'handleSearch'
     },
-    render: function() {
-      console.log(this.$search);
-      return this;
+
+    selectors: {
+      '$searchInput': '.search-input'
+    },
+
+    handleSearch: function(e) {
+      if(e.keyCode === 13) {
+        console.log('Searching for the movie: ' + this.$searchInput.val());
+        this.$searchInput.val("");
+      }
     }
   });
 
-  return SidebarView;
+  return GenreView;
 })
