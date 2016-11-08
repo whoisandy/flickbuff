@@ -5,6 +5,10 @@ module.exports = function(grunt) {
       sass: {
         files: 'src/**/*.scss',
         tasks: ['sass']
+      },
+      requirejs: {
+        files: 'src/**/*.js',
+        tasks: ['requirejs']
       }
     },
     sass: {
@@ -32,7 +36,7 @@ module.exports = function(grunt) {
         bsFiles: {
           src : [
             '.build/css/*.css',
-            'src/scripts/**/*.js',
+            '.build/js/*.js',
             'src/**/*.html'
           ]
         },
