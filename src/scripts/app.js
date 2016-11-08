@@ -1,19 +1,10 @@
 define([
-  'handlebars',
   'backbone',
+  'utils/index',
   'views/genre',
   'views/movie'
-],function(Handlebars, BaseView, GenreListView, MovieListView) {
-  Handlebars.registerHelper('image', function(path) {
-    var imageUrl;
-    if(path !== null) {
-      imageUrl = 'https://image.tmdb.org/t/p/w154' + path;
-    } else {
-      imageUrl = 'https://placehold.it/154x218?text="No Image Found"';
-    }
-
-    return new Handlebars.SafeString("<img src='" + imageUrl + "'/>");
-  });
+],function(BaseView, Utils, GenreListView, MovieListView) {
+  Utils.init();
 
   var AppView = Backbone.View.extend({
     el: $('#wrapper'),

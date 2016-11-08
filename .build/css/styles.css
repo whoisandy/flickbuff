@@ -37,14 +37,14 @@ body {
 
 .movie-list {
   overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   background-color: #1c1c1c;
+  /*background-color: #96281B;*/
   color: white; }
-  .movie-list .movie-list-view {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row; }
 
-.movie-list-view .movie {
+.movie-list .movie {
   padding: 8px;
   flex: 0 1 200px;
   position: relative;
@@ -57,7 +57,6 @@ body {
   display: block; }
 
 .movie .movie-info {
-  padding: 20px 50px 20px 20px;
   background: rgba(0, 0, 0, 0.75);
   opacity: 0;
   transition: opacity 0.25s ease-in;
@@ -66,8 +65,35 @@ body {
   width: 100%;
   top: 0;
   bottom: 0; }
-  .movie .movie-info h4 {
+  .movie .movie-info .title,
+  .movie .movie-info .year,
+  .movie .movie-info .rating {
+    padding: 20px 40px 20px 20px;
+    left: 0;
+    right: 0;
+    position: absolute; }
+  .movie .movie-info .title {
+    top: 0;
     font-size: 18px; }
+  .movie .movie-info .year {
+    bottom: 61px; }
+  .movie .movie-info .rating {
+    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+    font-size: 0;
+    height: 21px;
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -999em;
+    width: 110px;
+    padding: 0;
+    bottom: 40px;
+    left: 20px; }
+    .movie .movie-info .rating-stars {
+      background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+      background-position: 0 100%;
+      float: left;
+      height: 21px;
+      display: block; }
 
 .movie:hover > .movie-info {
   opacity: 1; }
@@ -78,6 +104,7 @@ body {
 
 .genre-list {
   background-color: #262626;
+  /*background-color: #96281B;*/
   box-shadow: -2px 0 10px 2px #171717 inset;
   border-right: 1px #000 solid;
   z-index: 99; }

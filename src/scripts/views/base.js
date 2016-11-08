@@ -1,11 +1,10 @@
 define([
   'underscore',
   'jquery',
-  'backbone',
-  'handlebars'
-], function(_, $, Backbone, Handlebars) {
+  'handlebars',
+  'backbone'
+], function(_, $, hbs, Backbone) {
   var viewOptions = [
-    'meta',
     'selectors',
     'template',
     'templateData'
@@ -22,7 +21,7 @@ define([
 
         // Execute the original render function
         var result = originalRender.apply(this, arguments);
-        // this.cacheSelectors();
+        this.cacheSelectors();
 
         if (_.isFunction(this.afterRender)) this.afterRender();
         return result;
@@ -46,15 +45,14 @@ define([
       var template = this.template;
 
       if(!_.isFunction(template)) {
-        template = Handlebars.compile(template);
+        template = hbs.compile(template);
       }
 
 
       if( !_.isUndefined(this.collection)) {
         var collection = new this.collection();
-        $.when(collection.fetch(this.collectionParams)).then(function(data) {
-          var results = _.extend({}, data, _this.meta);
-          _this.$el.append(template(results));
+        $.when(collection.fetch(this.params)).then(function(data) {
+          _this.$el.append(template(data));
           _this.cacheSelectors();
         });
       } else {
