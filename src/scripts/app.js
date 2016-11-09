@@ -1,13 +1,24 @@
-(function($, Backbone, _) {
+define([
+  'backbone',
+  'helpers',
+  'views/genre',
+  'views/movie'
+],function(Backbone, Helpers, GenreListView, MovieListView) {
+  Helpers.register();
+
   var AppView = Backbone.View.extend({
-    el: $('#wrapper'),
+    el: '#wrapper',
+
     initialize: function() {
       this.render();
     },
+
     render: function() {
-      this.$el.html('<h1>My Backbone App</h1>')
+      this.$el
+        .append(new GenreListView().render().el)
+        .append(new MovieListView().render().el)
     }
   });
 
-  var app = new AppView();
-})(jQuery, Backbone, _);
+  return AppView;
+});

@@ -1,0 +1,37 @@
+.genre-list {
+  background-color: darken(#303030, 4%);
+  /*background-color: #96281B;*/
+  box-shadow: -2px 0 10px 2px darken(#303030, 10%) inset;
+  border-right: 1px #000 solid;
+  z-index:99;
+  .search {
+    padding: 20px;
+    width: 100%;
+    .search-input {
+      width: 100%;
+      padding: 8px 16px;
+      display: block;
+      outline: none;
+      border: 1px #888 solid;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+  }
+  .genres {
+    list-style: none;
+  }
+}
+
+.genres {
+  li {
+    a {
+      padding: 6px 24px;
+      display: block;
+      text-decoration: none;
+      color: white;
+      &:hover {
+        background-color: #D73C2C;
+      }
+    }
+  }
+}

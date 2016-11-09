@@ -1,5 +1,5 @@
 node_modules/
-dist/
 bower_components/
-
-*.lock
+.build/
+yarn.lock
+npm-debug.log
