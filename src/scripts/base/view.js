@@ -17,7 +17,7 @@ define([
 
       var originalInitialize = this.initialize;
       this.initialize = function() {
-        originalInitialize.apply(this, arguments);
+        Backbone.View.prototype.initialize.apply(this, arguments);
         this.cacheSelectors();
       }
 
@@ -65,7 +65,7 @@ define([
         _this.$el.append(template(_.result(this, 'templateData')));
       }
 
-      return this;
+      return this.$el;
     },
 
     // Execute beforeRender function

@@ -1,15 +1,7 @@
 define([
-  'handlebars',
+  'handlebars'
 ], function(hbs) {
   var Helpers = {
-    register: function() {
-      Object.keys(this).filter(function(v) {
-        return v !== 'register'
-      }).forEach(function(method) {
-        hbs.registerHelper(method, this[method]);
-      }, this);
-    },
-
     image: function(path) {
       var imageUrl;
       if(path !== null) {

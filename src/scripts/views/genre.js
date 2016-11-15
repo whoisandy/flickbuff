@@ -5,7 +5,7 @@ define([
   'text!templates/genres.html'
 ], function($, BaseView, GenreCollection, template) {
   var GenreView = BaseView.extend({
-    className: 'genre-list',
+    el: '.genre-list',
 
     template: template,
 

@@ -1,6 +1,5 @@
 .genre-list {
-  background-color: darken(#303030, 4%);
-  /*background-color: #96281B;*/
+  background-color: $genre-list-bg;
   box-shadow: -2px 0 10px 2px darken(#303030, 10%) inset;
   border-right: 1px #000 solid;
   z-index:99;
@@ -28,9 +27,10 @@
       padding: 6px 24px;
       display: block;
       text-decoration: none;
-      color: white;
+      color: $genre-list-default-color;
       &:hover {
-        background-color: #D73C2C;
+        background-color: lighten($genre-list-bg, 4%);
+        color: $genre-list-hover-color;
       }
     }
   }

@@ -2,6 +2,10 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
   grunt.initConfig({
     watch: {
+      copy: {
+        files: 'src/**/*.html',
+        tasks: ['copy', 'requirejs']
+      },
       sass: {
         files: 'src/**/*.scss',
         tasks: ['sass']
@@ -10,6 +14,21 @@ module.exports = function(grunt) {
         files: 'src/**/*.js',
         tasks: ['requirejs']
       }
+    },
+    clean: {
+      dev: {
+        src: ['.build']
+      }
+    },
+    copy: {
+      dev: {
+        expand: true,
+        cwd: 'src/',
+        src: 'scripts/templates/**',
+        dest: '.build/js/tmpl',
+        flatten: true,
+        filter: 'isFile',
+      },
     },
     sass: {
   		options: {
@@ -49,6 +68,6 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('dev', ['sass', 'requirejs', 'browserSync', 'watch']);
-  grunt.registerTask('build', ['sass', 'requirejs']);
+  grunt.registerTask('dev', ['clean', 'copy', 'sass', 'requirejs', 'browserSync', 'watch']);
+  grunt.registerTask('build', ['clean', 'copy', 'sass', 'requirejs']);
 }

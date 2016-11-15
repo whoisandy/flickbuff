@@ -1,17 +1,12 @@
 .movie-list {
   overflow-y: scroll;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  background-color: darken(#303030, 8%);
-  /*background-color: #96281B;*/
+  background-color: darken($genre-list-bg, 8%);
   color: white;
 }
 
 .movie-list {
   .movie {
-    padding: 8px;
-    flex: 0 1 200px;
+    margin-bottom: 16px;
     position: relative;
     cursor: pointer;
   }
@@ -25,28 +20,29 @@
     display: block;
   }
   .movie-info {
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.8);
     opacity: 0;
     transition: opacity 0.25s ease-in;
     position: absolute;
     display: block;
-    width: 100%;
+    right: 0;
+    left: 0;
     top: 0;
     bottom: 0;
     .title,
     .year,
     .rating {
       padding: 20px 40px 20px 20px;
+      position: absolute;
       left: 0;
       right: 0;
-      position: absolute;
     }
     .title {
       top: 0;
       font-size: 18px;
     }
     .year {
-      bottom: 61px;
+      bottom: 24px;
     }
     .rating {
       background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
@@ -57,7 +53,7 @@
       text-indent: -999em;
       width: 110px;
       padding: 0;
-      bottom: 40px;
+      bottom: 20px;
       left: 20px;
 
       &-stars {
@@ -71,8 +67,6 @@
   }
   &:hover > .movie-info {
     opacity: 1;
-  }
-  @media screen and (max-width: 990px) and (min-width: 767px) {
-    flex: 0 1 154px;
+    border: 1px #446CB3 solid;
   }
 }

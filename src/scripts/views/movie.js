@@ -4,7 +4,8 @@ define([
   'text!templates/movies.html'
 ], function(BaseView, MovieCollection, template) {
   var MovieView = BaseView.extend({
-    className: 'movie-list',
+    el: '.movie-list',
+    className: 'row',
     template: template,
     ui: {
       '$filter': '#filter'
@@ -20,7 +21,7 @@ define([
     },
     handleScroll: _.throttle(function() {
       this.$filter.val();
-      var triggerPoint = 100;
+      var triggerPoint = 200;
       if(this.el.scrollTop + this.el.clientHeight + triggerPoint > this.el.scrollHeight) {
         this.params.page += 1;
         this.render();

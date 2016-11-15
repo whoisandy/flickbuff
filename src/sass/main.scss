@@ -1,3 +1,9 @@
+/*$genre-list-bg :#282D33;*/
+$genre-list-bg :#2E2E34;
+$genre-list-default-color:#FFFFFF;
+$genre-list-hover-color: #FC4D55;
+
+@import '../../bower_components/flexboxgrid/dist/flexboxgrid.min.css';
 @import 'normalize';
 @import 'movies';
 @import 'genres';

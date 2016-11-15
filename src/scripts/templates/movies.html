@@ -1,14 +1,16 @@
 {{#each this.results}}
-<div class="movie">
-  <div class="movie-poster">
-    <!--<img src="https://image.tmdb.org/t/p/w154/xfWac8MTYDxujaxgPVcRD9yZaul.jpg" />-->
-    {{#image this.poster_path}}{{/image}}
-  </div>
-  <div class="movie-info">
-    <h4 class="title">{{ this.original_title }}</h4>
-    {{#year this.release_date}}{{/year}}
-    <div class="rating">
-      {{#rating this.vote_average }}{{/rating}}
+<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+  <div class="movie">
+    <div class="movie-poster">
+      <!--<img src="https://image.tmdb.org/t/p/w154/xfWac8MTYDxujaxgPVcRD9yZaul.jpg" />-->
+      {{#image this.poster_path}}{{/image}}
+    </div>
+    <div class="movie-info">
+      <h4 class="title">{{ this.original_title }}</h4>
+      {{#year this.release_date}}{{/year}}
+      <div class="rating">
+        {{#rating this.vote_average }}{{/rating}}
+      </div>
     </div>
   </div>
 </div>

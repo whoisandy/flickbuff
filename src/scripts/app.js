@@ -1,10 +1,11 @@
 define([
   'backbone',
-  'helpers',
+  'utils',
   'views/genre',
   'views/movie'
-],function(Backbone, Helpers, GenreListView, MovieListView) {
-  Helpers.register();
+],function(Backbone, Utils, GenreListView, MovieListView) {
+  Utils.registerHelpers();
+  Utils.registerTemplates();
 
   var AppView = Backbone.View.extend({
     el: '#wrapper',
@@ -14,9 +15,8 @@ define([
     },
 
     render: function() {
-      this.$el
-        .append(new GenreListView().render().el)
-        .append(new MovieListView().render().el)
+      this.$el.append(new GenreListView().render())
+      this.$el.append(new MovieListView().render())
     }
   });
 
